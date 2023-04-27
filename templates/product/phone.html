@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% for p in phone %}
+   
+    <h1>{{p}}</h1>
+    <h1>{{p.content}}</h1>
+    <h3>{{p.price}}</h3>
+    <img src="{{p.image.url}}" alt="{{p.name}}" srcset="">
+    {% endfor %}
+{% endblock content %}
