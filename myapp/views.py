@@ -3,8 +3,10 @@ from django.http import HttpResponse
 from django.views.generic import DetailView
 from .forms import LoginForm ,RegisterForm
 from django.contrib.auth.hashers import make_password
-
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib import messages
 from .models import Product,Login
+
 # Create your views here.
 
 class ProductDetailView(DetailView):
@@ -67,3 +69,17 @@ def register(request):
         'form': form,
     }
     return render(request, 'register.html', context)
+
+def signup(request):
+    if request.method == "POST":
+        form = UserCreationForm(request.POST)
+        
+        if form.is_valid():
+            form.save()
+
+            messages.success(request,"Your account has been created successfuly!")
+
+            return redirect('products')
+    else:
+        form = UserCreationForm()
+    return render(request,'signup.html',{"form":form})

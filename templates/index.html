@@ -2,8 +2,15 @@
 {% load static %}
 
 {% block content%}
-<h1>HELLO AZBIII</h1>
-<h4>vediowaaaaaaaaat</h4>
+<div class="container">
+<div class="card mt-4">
+<div class="card-body text-center">
+<h1>Welcome</h1>
+<a class="btn btn-primary" href="{% url 'login' %}">Login</a>
+<a class="btn btn-secondary" href="{% url 'signup' %}">Sign Up</a>
+</div>
+</div>
+</div>
 {{name|cut:'o'}}
 {{age}}
 {% endblock content%}

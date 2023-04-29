@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content%}
+<div class="container">
+    <h3 class="text-center mt-4">Signup</h3>
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+
+            <form action="" method="post">
+                {% csrf_token %}
+                <!-- {{ form.as_p }} -->
+                {% include "bs5_form.html" with form=form %}
+                <div class="mt-3">
+                    <button class="btn btn-primary" type="submit">Sign Up</button>
+                <a class="btn btn-secondary" href="{% url 'contact' %}">CANCEL</a>
+
+                </div>
+
+                
+            </form>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+</div>
+
+{% endblock content%}

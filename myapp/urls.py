@@ -2,7 +2,7 @@ from django.urls import path
 from . import views
 from django.conf import settings
 from django.conf.urls.static import static
-
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('',views.index,name="index"),
@@ -13,6 +13,8 @@ urlpatterns = [
     path('phone',views.phone,name='phone'),
     path('product/<slug:slug>/', views.ProductDetailView.as_view(), name='product'),
     path('register',views.register,name='register'),
+    path('signup',views.signup,name='signup'),
+    path('login',auth_views.LoginView.as_view(),name='login'),
 
 ]+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
 
