@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "myapp.apps.MyappConfig",
     'widget_tweaks',
+    'accounts',
+
+    
 ]
 
 MIDDLEWARE = [
@@ -122,7 +125,18 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR,'test1/static')
 ]
 
+LOGIN_REDIRECT_URL = "myapp:products"
+LOGOUT_REDIRECT_URL = "myapp:signup"
+LOGIN_URL = "myapp:login"
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'noussairabellouch4@gmail.com'
+EMAIL_HOST_PASSWORD = 'yshnlxpkonqkpbve'
+DEFAULT_FROM_EMAIL = 'noussairabellouch4@gmail.com'

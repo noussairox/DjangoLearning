@@ -4,18 +4,20 @@
 
 {% block content%}
 <div class="container">
-    <h3 class="text-center mt-4">Signup</h3>
+    <h3 class="text-center mt-4">Login</h3>
     <div class="row">
         <div class="col-md-4"></div>
         <div class="col-md-4">
 
-            <form action="" method="post">
+            <form  method="post">
                 {% csrf_token %}
                 <!-- {{ form.as_p }} -->
                 {% include "bs5_form.html" with form=form %}
                 <div class="mt-3">
-                    <button class="btn btn-primary" type="submit">Sign Up</button>
+                    <button class="btn btn-primary" type="submit">Login</button>
                 <a class="btn btn-secondary" href="{% url 'myapp:contact' %}">CANCEL</a>
+                <a href="{% url 'password_reset' %}" class="ms-2" style="text-decoration: none;font-size: small;"
+                >Vous avez oublié Votre password?</a>
 
                 </div>
 

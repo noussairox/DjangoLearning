@@ -55,3 +55,5 @@ class Register(models.Model):
     name = models.CharField(max_length=150,unique=True)
     email = models.EmailField()
     password = models.CharField(max_length=50)
+
+

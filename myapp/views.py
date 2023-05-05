@@ -6,6 +6,7 @@ from django.contrib.auth.hashers import make_password
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from .models import Product,Login
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -31,11 +32,11 @@ def about(request):
         return redirect('index')
     return render(request,'about.html')
 
-
+@login_required
 def product(request):
     return render(request,'product/product.html')
 
-
+@login_required
 def products(request):
     return render(request, 'product/products.html', {'pro': Product.objects.all()})
 
@@ -79,7 +80,7 @@ def signup(request):
 
             messages.success(request,"Your account has been created successfuly!")
 
-            return redirect('products')
+            return redirect('contact')
     else:
         form = UserCreationForm()
     return render(request,'signup.html',{"form":form})
